@@ -15,10 +15,19 @@ public class LoginTest {
 
     WebDriver driver;
 
-    @BeforeClass
-    public void setup() {
-        driver = new ChromeDriver();
-    }
+
+@BeforeClass
+public void setup() {
+    org.openqa.selenium.chrome.ChromeOptions options =
+            new org.openqa.selenium.chrome.ChromeOptions();
+
+    options.addArguments("--headless=new");
+    options.addArguments("--no-sandbox");
+    options.addArguments("--disable-dev-shm-usage");
+
+    driver = new ChromeDriver(options);
+}
+
 
     @Test(priority = 1)
     public void validLoginTest() {
